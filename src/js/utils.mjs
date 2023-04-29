@@ -30,6 +30,7 @@ export function getParam(param) {
   return product;
 }
 
+
 // function to take a list of objects and a template and insert the objects as HTML into the DOM
 export function renderListWithTemplate(
   templateFn,
@@ -42,5 +43,6 @@ export function renderListWithTemplate(
   if (clear) {
     parentElement.innerHTML = "";
   }
+
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
