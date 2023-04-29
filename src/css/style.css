@@ -154,6 +154,10 @@ button {
 .card__name {
   font-size: 1em;
 }
+
+.card__msrp {
+  color: red;
+}
 /* End product list card */
 
 .product-detail {
