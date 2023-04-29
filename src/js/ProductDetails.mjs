@@ -1,7 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { displayCounter } from "./cartCount.mjs";
 
-displayCounter();
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
