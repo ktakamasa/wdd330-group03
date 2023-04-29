@@ -1,14 +1,23 @@
 import {renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-    return `<li class="product-card">
+    if (filterProducts(product)) {
+        return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
     <img src="${product.Image}" alt="Image of ${product.Name}"/>
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
     </li>`;
+    }
   }
+
+function filterProducts (product) { 
+    const activeProducts = ["880RR", "985RF", "985PR", "344YJ"];
+    if(activeProducts.includes(product.Id)) {
+    return true;
+    } 
+}
 
 export default class ProductListing {
     constructor(category, dataSource, listElement) {
@@ -23,9 +32,6 @@ export default class ProductListing {
         // our dataSource will return a Promise...so we can use await to resolve it.
         const list = await this.dataSource.getData();
         // render the list - to be completed
-        
-        // filter list
-        console.log(list);
         this.renderList(list);
     }
 
@@ -33,7 +39,6 @@ export default class ProductListing {
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
-    
 
     // render method before stretch activity
     // renderList(list) {
