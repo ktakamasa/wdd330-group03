@@ -1,8 +1,11 @@
 import ProductData from "./ProductData.mjs";
-import ProductListing from "./productlist.mjs";
+import ProductList from "./Productlist.mjs";
 
+const dataSource = new ProductData("tents");
+const element = document.querySelector(".product-list");
+const listing = new ProductListing("Tents", dataSource, element);
 
-const productDataInstance = new ProductData(); // create a new instance of the ProductData 
+listing.init();
 
-
-const productListingInstance = new ProductListing(); // create a new instance of the ProductData 
+// const productDataInstance = new ProductData(); // create a new instance of the ProductData 
+// const productListingInstance = new ProductListing(); // create a new instance of the ProductData 
