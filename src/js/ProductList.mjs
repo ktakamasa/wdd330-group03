@@ -11,7 +11,6 @@ function productCardTemplate(product) {
     </li>`
 }
 
-// I'm not sure if this is exactly what we need, but it filters the list to only show 4 products, which is what the instructions say to do.
 function filterProducts(list) {
     return list.slice(0, 4);
 }
