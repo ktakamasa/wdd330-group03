@@ -1,7 +1,7 @@
+import { getLocalStorage } from "./utils.mjs";
+
 export function displayCounter() {
-    let totalQty = localStorage.length + 1;
+  let cartItems = getLocalStorage("so-cart").length;
     const element = document.querySelector("#cart-count");
-    element.innerHTML = totalQty;
+    element.textContent = cartItems;
 }
-
-
