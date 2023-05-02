@@ -177,6 +177,7 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+  width: 620px;
 }
 
 .cart-card__image {
@@ -230,7 +231,7 @@ button {
   display: grid;
   grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
-  max-width: 620px;
+  max-width: 630px;
   align-items: center;
   color: red;
 }
