@@ -228,12 +228,11 @@ button {
 /* start to cart total style*/
 .cart-total-grid {
   display: grid;
-  grid-template-columns: 24% auto 15%;
+  grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
   max-width: 620px;
   align-items: center;
   color: red;
-  padding: 0;
 }
 .cart-total{
   grid-row: 1;
