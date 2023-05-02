@@ -225,6 +225,25 @@ button {
 .card__msrp {
   color: red;
 }
+/* start to cart total style*/
+.cart-total-grid {
+  display: grid;
+  grid-template-columns: 24% auto 15%;
+  font-size: var(--small-font);
+  max-width: 620px;
+  align-items: center;
+  color: red;
+  padding: 0;
+}
+.cart-total{
+  grid-row: 1;
+  grid-column: 2/3;
+}
+.cart-total-price{
+  grid-row: 1;
+  grid-column: 3/4;
+}
+/* end of cart total style*/
 
 @media screen and (min-width: 500px) {
   body {
