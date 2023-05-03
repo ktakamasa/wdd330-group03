@@ -50,7 +50,7 @@ function cartTotal() {
   const price = cartItems.map((item) => (item.FinalPrice));
   let total=price.reduce((a, b) => a + b, 0);
  
-  return total;  
+  return total.toFixed(2);  
 }
 
 renderCartContents();
