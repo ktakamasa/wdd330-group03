@@ -1,9 +1,6 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/main
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
@@ -35,46 +32,6 @@ export default class ProductDetails {
     this.renderProductDetails("main");
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
-<<<<<<< HEAD
-    document
-      .getElementById("addToCart")
-      .addEventListener("click", this.addToCart.bind(this));
-  }
-
-    addToCart() {
-        // setLocalStorage("so-cart", this.product); 
-        let cart = getLocalStorage("so-cart");
-        if (cart === null) {
-          cart = [];
-        }
-        cart.push(this.product);
-        setLocalStorage("so-cart", cart);
-    };
-
-    //    // add to cart button event handler
-    //    async addToCartHandler(e) {
-    //     const product1 = await dataSource.findProductById(e.target.dataset.id);
-    //     product.addToCart();
-    //   }
-  
-    //   // add listener to Add to Cart button
-    //   document
-    //     .getElementById("addToCart")
-    //     .addEventListener("click", addToCartHandler);
-   
-    
-    renderProductDetails(selector) {
-      const element = document.querySelector(selector);
-      element.insertAdjacentHTML(
-        "afterBegin",
-        productDetailsTemplate(this.product)
-      );
-    }
-  }
-
-
-
-=======
     document.getElementById("addToCart").addEventListener("click", this.addToCart.bind(this));
     }
 
@@ -109,4 +66,3 @@ export default class ProductDetails {
 
   
 }
->>>>>>> origin/main
