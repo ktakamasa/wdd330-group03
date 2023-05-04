@@ -7,8 +7,7 @@ loadHeaderFooter();
 const cart = new ShoppingCart("so-cart", ".product-list");
 cart.renderCartContents();
 
-function renderCartTotal()
-{
+function renderCartTotal() {
   document.querySelector(".total").innerHTML = cartTotalTemplate();
 }
 
@@ -28,13 +27,12 @@ function cartTotal() {
   const cartItems = getLocalStorage("so-cart");
   if (cartItems === null) {
     let total = 0;
-    return total
+    return total;
   } else {
-    const price = cartItems.map((item) => (item.FinalPrice));
+    const price = cartItems.map((item) => item.FinalPrice);
     let total = price.reduce((a, b) => a + b, 0);
-    return total;  
+    return total;
   }
- 
 }
 
 displayCounter();

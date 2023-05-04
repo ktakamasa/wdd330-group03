@@ -235,11 +235,11 @@ button {
   align-items: center;
   color: red;
 }
-.cart-total{
+.cart-total {
   grid-row: 1;
   grid-column: 2/3;
 }
-.cart-total-price{
+.cart-total-price {
   grid-row: 1;
   grid-column: 3/4;
 }

@@ -15,4 +15,3 @@ const productList = new ProductListing(category, dataSource, listElement);
 productList.init();
 
 displayCounter();
-
