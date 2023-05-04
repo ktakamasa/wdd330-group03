@@ -1,6 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
-import { displayCounter } from "./cartCount.mjs";
+// import { displayCounter } from "./cartCount.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
@@ -13,5 +13,3 @@ const listElement = document.querySelector(".product-list");
 
 const productList = new ProductListing(category, dataSource, listElement);
 productList.init();
-
-displayCounter();

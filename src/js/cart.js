@@ -1,5 +1,4 @@
 import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
-import { displayCounter } from "./cartCount.mjs";
 import ShoppingCart from "./ShoppingCart.mjs";
 
 loadHeaderFooter();
@@ -35,5 +34,4 @@ function cartTotal() {
   }
 }
 
-displayCounter();
 renderCartTotal();

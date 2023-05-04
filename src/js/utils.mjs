@@ -67,4 +67,18 @@ export async function loadHeaderFooter() {
   const footer = document.getElementById("main-footer");
   renderWithTemplate(headerStr, header)
   renderWithTemplate(footerStr, footer)
+
+  displayCounter();
+}
+
+function displayCounter() {
+  let cartItems = getLocalStorage("so-cart");
+  if (!cartItems) {
+    const element = document.querySelector("#cart-count");
+    element.textContent = 0;
+  } else {
+    const element = document.querySelector("#cart-count");
+    cartItems = getLocalStorage("so-cart").length;
+    element.textContent = cartItems;
+  }
 }
