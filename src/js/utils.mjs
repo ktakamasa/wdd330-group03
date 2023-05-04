@@ -45,3 +45,40 @@ export function renderListWithTemplate(
 
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  if (callback) {
+    callback(data);
+  }
+}
+
+async function loadTemplate(path) {
+  const html = await fetch(path);
+  const template = await html.text();
+  return template;
+}
+
+export async function loadHeaderFooter() {
+  const path = "../partials/"
+  const headerStr = await loadTemplate(`${path}header.html`);
+  const footerStr = await loadTemplate(`${path}footer.html`);
+  const header = document.getElementById("main-header");
+  const footer = document.getElementById("main-footer");
+  renderWithTemplate(headerStr, header)
+  renderWithTemplate(footerStr, footer)
+
+  displayCounter();
+}
+
+function displayCounter() {
+  let cartItems = getLocalStorage("so-cart");
+  if (!cartItems) {
+    const element = document.querySelector("#cart-count");
+    element.textContent = 0;
+  } else {
+    const element = document.querySelector("#cart-count");
+    cartItems = getLocalStorage("so-cart").length;
+    element.textContent = cartItems;
+  }
+}

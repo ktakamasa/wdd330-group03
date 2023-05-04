@@ -1,38 +1,15 @@
-import { getLocalStorage } from "./utils.mjs";
-import { displayCounter } from "./cartCount.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import ShoppingCart from "./ShoppingCart.mjs";
 
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  if (!cartItems) {
-    return null;
-  } else {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  }
-}
-function renderCartTotal()
-{
+loadHeaderFooter();
+
+const cart = new ShoppingCart("so-cart", ".product-list");
+cart.renderCartContents();
+
+function renderCartTotal() {
   document.querySelector(".total").innerHTML = cartTotalTemplate();
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
-
-  return newItem;
-}
 function cartTotalTemplate() {
   const newItem = `<div class="cart-total-grid">
 
@@ -47,12 +24,14 @@ function cartTotalTemplate() {
 
 function cartTotal() {
   const cartItems = getLocalStorage("so-cart");
-  const price = cartItems.map((item) => (item.FinalPrice));
-  let total=price.reduce((a, b) => a + b, 0);
- 
-  return total;  
+  if (cartItems === null) {
+    let total = 0;
+    return total;
+  } else {
+    const price = cartItems.map((item) => item.FinalPrice);
+    let total = price.reduce((a, b) => a + b, 0);
+    return total;
+  }
 }
 
-renderCartContents();
-displayCounter();
 renderCartTotal();

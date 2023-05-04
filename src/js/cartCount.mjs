@@ -1,14 +1,23 @@
-import { getLocalStorage } from "./utils.mjs";
+//USED TO WORK 
 
-export function displayCounter() {
-  let cartItems = getLocalStorage("so-cart");
-  if (!cartItems) {
-    const element = document.querySelector("#cart-count");
-    element.textContent = 0;
-  } else {
-    cartItems = getLocalStorage("so-cart").length;
-    const element = document.querySelector("#cart-count");
-    element.textContent = cartItems;
-  }
+// import { getLocalStorage } from "./utils.mjs";
 
-}
+
+// export function displayCounter() {
+//     window.onload = () => {
+//         const span = document.createElement("span");
+//         span.id = "cart-count";
+//         const div = document.querySelector(".cart");
+//         div.appendChild(span);
+    
+//     let cartItems = getLocalStorage("so-cart");
+//     if (!cartItems) {
+//           const element = document.querySelector("#cart-count");
+//           element.textContent = 0;
+//         } else {
+//               const element = document.querySelector("#cart-count");
+//               cartItems = getLocalStorage("so-cart").length;
+//               element.textContent = cartItems;
+//         }            
+//     }
+// }
