@@ -1,23 +1,16 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 import { displayCounter } from "./cartCount.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import ShoppingCart from "./ShoppingCart.mjs";
 
 loadHeaderFooter();
 
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  if (!cartItems) {
-    return null;
-  } else {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  }
-}
+const cart = new ShoppingCart("so-cart", ".product-list");
+cart.renderCartContents();
+
 function renderCartTotal()
 {
   document.querySelector(".total").innerHTML = cartTotalTemplate();
 }
-
 
 function cartTotalTemplate() {
   const newItem = `<div class="cart-total-grid">
@@ -33,12 +26,16 @@ function cartTotalTemplate() {
 
 function cartTotal() {
   const cartItems = getLocalStorage("so-cart");
-  const price = cartItems.map((item) => (item.FinalPrice));
-  let total=price.reduce((a, b) => a + b, 0);
+  if (cartItems === null) {
+    let total = 0;
+    return total
+  } else {
+    const price = cartItems.map((item) => (item.FinalPrice));
+    let total = price.reduce((a, b) => a + b, 0);
+    return total;  
+  }
  
-  return total;  
 }
 
-renderCartContents();
 displayCounter();
 renderCartTotal();
