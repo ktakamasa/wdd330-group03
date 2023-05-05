@@ -24,12 +24,6 @@ function cartTotalTemplate() {
 
 function cartTotal() {
   const cartItems = getLocalStorage("so-cart");
-<<<<<<< HEAD
-  const price = cartItems.map((item) => (item.FinalPrice));
-  let total=price.reduce((a, b) => a + b, 0);
- 
-  return total.toFixed(2);  
-=======
   if (cartItems === null) {
     let total = 0;
     return total;
@@ -38,7 +32,6 @@ function cartTotal() {
     let total = price.reduce((a, b) => a + b, 0);
     return total;
   }
->>>>>>> origin/main
 }
 
 renderCartTotal();
