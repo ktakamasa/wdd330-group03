@@ -83,6 +83,7 @@ function displayCounter() {
   }
 }
 
+
 export function calculateDiscountPercentage(msrp, final) {
   return Math.round((msrp - final) / msrp * 100);
 }

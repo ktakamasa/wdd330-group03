@@ -41,8 +41,16 @@ export default class ProductDetails {
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     document.getElementById("addToCart").addEventListener("click", this.addToCart.bind(this));
+    document.getElementById("addToCart").addEventListener("click", this.setCartCount.bind(this));
   }
-
+  
+    setCartCount(){
+      let counter = document.getElementById("cart-count");
+      let cart = getLocalStorage("so-cart");
+      let numItems = cart.length;
+      counter.textContent = numItems;
+    }
+ 
   addToCart() {
     // setLocalStorage("so-cart", this.product);
     let cart = getLocalStorage("so-cart");
