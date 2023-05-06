@@ -277,3 +277,11 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.cart-card__delete {
+  grid-column: 4;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  width: auto;
+  font-size: 1rem;
+}

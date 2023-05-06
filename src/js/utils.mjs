@@ -82,3 +82,4 @@ function displayCounter() {
     element.textContent = cartItems;
   }
 }
+

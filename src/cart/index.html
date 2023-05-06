@@ -54,6 +54,29 @@
         </ul>
       </section>
       <section class="total"></section>
+
+      <!-- <script>
+        function getLocalStorage(key) {
+          return JSON.parse(localStorage.getItem(key));
+        }
+
+        function setLocalStorage(key, data) {
+          localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        function deleteItem(Id) {
+          const cart = getLocalStorage("so-cart");
+          for (let i = 0; i < cart.length; i++) {
+            let id = cart[i].Id;
+            if (id === Id) {
+              cart.splice(i, 1);
+              setLocalStorage("so-cart", cart);
+              window.location.reload();
+              return;
+            }
+          }
+        }
+      </script> -->
     </main>
 
     <footer id="main-footer"></footer>
