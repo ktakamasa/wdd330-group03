@@ -5,7 +5,7 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 const listHeading = document.querySelector("#product-list-heading");
 
-const category = getParam('category');
+const category = getParam("category");
 
 let headingText = "Top Products: ";
 
