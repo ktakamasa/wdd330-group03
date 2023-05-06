@@ -5,7 +5,7 @@ function calculateDiscountPercentage(msrp, final) {
 }
 
 function productCardTemplate(product) {
-    if (filterProducts(product)) {
+   // if (filterProducts(product)) {
         let msrp = "";
         let msrp_val = product.SuggestedRetailPrice;
         let final_val = product.FinalPrice;
@@ -15,22 +15,22 @@ function productCardTemplate(product) {
 
 
         return `<li class="product-card">
-    <a href="product_pages/index.html?product=${product.Id}">
-    <img src="${product.Image}" alt="Image of ${product.Name}"/>
+    <a href="../product_pages/index.html?product=${product.Id}">
+    <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}"/>
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
     <p class="card__msrp">${msrp}</p>
     <p class="product-card__price">$${final_val}</p>
     </li>`;
-    }
+    //}
 }
 
-function filterProducts(product) {
-    const activeProducts = ["880RR", "985RF", "985PR", "344YJ"];
-    if (activeProducts.includes(product.Id)) {
-        return true;
-    }
-}
+//function filterProducts(product) {
+//    const activeProducts = ["880RR", "985RF", "985PR", "344YJ"];
+//    if (activeProducts.includes(product.Id)) {
+//        return true;
+//    }
+//}
 
 export default class ProductListing {
     constructor(category, dataSource, listElement) {
@@ -44,7 +44,7 @@ export default class ProductListing {
 
     async init() {
         // our dataSource will return a Promise...so we can use await to resolve it.
-        const list = await this.dataSource.getData();
+        const list = await this.dataSource.getData(this.category);
         // render the list - to be completed
         this.renderList(list);
     }
