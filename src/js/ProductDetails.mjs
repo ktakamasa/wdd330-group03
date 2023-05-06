@@ -1,7 +1,14 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-
+import { calculateDiscountPercentage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  let msrp = "";
+  let msrp_val = product.SuggestedRetailPrice;
+  let final_val = product.FinalPrice;
+  if (msrp_val > final_val) {
+    msrp = `<s>$${product.SuggestedRetailPrice}</s> -${calculateDiscountPercentage(msrp_val, final_val)}%`;
+  }
+
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
@@ -9,7 +16,8 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="card__msrp">${msrp}</p>
+    <p class="product-card__price">$${final_val}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
@@ -35,13 +43,14 @@ export default class ProductDetails {
     document.getElementById("addToCart").addEventListener("click", this.addToCart.bind(this));
     document.getElementById("addToCart").addEventListener("click", this.setCartCount.bind(this));
   }
+  
     setCartCount(){
       let counter = document.getElementById("cart-count");
       let cart = getLocalStorage("so-cart");
       let numItems = cart.length;
       counter.textContent = numItems;
     }
-  
+ 
   addToCart() {
     // setLocalStorage("so-cart", this.product);
     let cart = getLocalStorage("so-cart");
@@ -71,5 +80,5 @@ export default class ProductDetails {
     );
   }
 
-  
+
 }
