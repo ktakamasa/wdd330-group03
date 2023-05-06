@@ -1,7 +1,14 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-
+import { calculateDiscountPercentage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  let msrp = "";
+  let msrp_val = product.SuggestedRetailPrice;
+  let final_val = product.FinalPrice;
+  if (msrp_val > final_val) {
+    msrp = `<s>$${product.SuggestedRetailPrice}</s> -${calculateDiscountPercentage(msrp_val, final_val)}%`;
+  }
+
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
@@ -9,7 +16,8 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="card__msrp">${msrp}</p>
+    <p class="product-card__price">$${final_val}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
@@ -33,7 +41,7 @@ export default class ProductDetails {
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     document.getElementById("addToCart").addEventListener("click", this.addToCart.bind(this));
-    }
+  }
 
   addToCart() {
     // setLocalStorage("so-cart", this.product);
@@ -64,5 +72,5 @@ export default class ProductDetails {
     );
   }
 
-  
+
 }
