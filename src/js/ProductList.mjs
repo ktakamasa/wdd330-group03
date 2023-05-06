@@ -1,8 +1,5 @@
 import { renderListWithTemplate } from "./utils.mjs";
-
-function calculateDiscountPercentage(msrp, final) {
-    return Math.round((msrp - final) / msrp * 100);
-}
+import { calculateDiscountPercentage } from "./utils.mjs";
 
 function productCardTemplate(product) {
    // if (filterProducts(product)) {
