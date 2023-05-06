@@ -15,20 +15,18 @@ function cartItemTemplate(item) {
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
     <p class="cart-card__quantity">qty: ${getLocalStorage(item.Id)}</p>
     <p class="cart-card__price">$${item.FinalPrice}</p>
-    <button class="cart-card__delete ${item.Id}">X</button>
+    <button class="cart-card__delete" onclick="deleteItem('${item.Id}')">X</button>
   </li>`;
     localStorage.removeItem(item.Id);
     return newItem;
   }
 }
-
-// onclick="deleteItem('${item.Id}')"
-
   export default class ShoppingCart {
     constructor(key, parentSelector) {
       this.key = key;
       this.parentSelector = parentSelector;
     }
+
     renderCartContents() {
       const cartItems = getLocalStorage(this.key);
       if (!cartItems) {
@@ -50,32 +48,5 @@ function cartItemTemplate(item) {
         }
       }
     }
-
-    // deleteItem(Id) {
-    //   const cart = getLocalStorage("so-cart");
-    //       for (let i = 0; i < cart.length; i++) {
-    //         let id = cart[i].Id;
-    //         if (id == Id) {
-    //           cart.splice(i, 1);
-    //           setLocalStorage("so-cart", cart);
-    //           location.reload();
-    //           return;
-    //         }
-    //       }
-    //     }
   }
 
-export function deleteItem(Id) {
-    const cart = getLocalStorage("so-cart");
-        for (let i = 0; i < cart.length; i++) {
-          let id = cart[i].Id;
-          if (id == Id) {
-            cart.splice(i, 1);
-            setLocalStorage("so-cart", cart);
-            location.reload();
-            return;
-          }
-        }
-      }
-
-  // document.querySelector(".cart-card__delete").addEventListener("click", this.deleteItem(cartItems));

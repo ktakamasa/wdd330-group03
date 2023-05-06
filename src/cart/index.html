@@ -55,7 +55,7 @@
       </section>
       <section class="total"></section>
 
-      <!-- <script>
+      <script>
         function getLocalStorage(key) {
           return JSON.parse(localStorage.getItem(key));
         }
@@ -67,8 +67,7 @@
         function deleteItem(Id) {
           const cart = getLocalStorage("so-cart");
           for (let i = 0; i < cart.length; i++) {
-            let id = cart[i].Id;
-            if (id === Id) {
+            if (cart[i].Id === Id) {
               cart.splice(i, 1);
               setLocalStorage("so-cart", cart);
               window.location.reload();
@@ -76,7 +75,7 @@
             }
           }
         }
-      </script> -->
+      </script>
     </main>
 
     <footer id="main-footer"></footer>
