@@ -1,5 +1,5 @@
 import { getParam } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductListing from "./ProductList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
@@ -28,7 +28,7 @@ switch (category) {
 
 listHeading.textContent = headingText;
 
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 
 const listElement = document.querySelector(".product-list");
 

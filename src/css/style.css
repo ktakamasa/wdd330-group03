@@ -285,3 +285,25 @@ footer {
   width: auto;
   font-size: 1rem;
 }
+
+.cartCheckoutButton{
+  padding: 1rem;
+}
+
+.cartCheckoutButton a{
+  text-decoration: none;
+  color: white;
+}
+.checkout-form {
+  padding: 0.5em;
+}
+.checkout-form label {
+  display: block;
+}
+.checkout-form input {
+  width: 100%;
+  font-size: 1.2em;
+}
+fieldset {
+  margin: 1rem auto;
+}
