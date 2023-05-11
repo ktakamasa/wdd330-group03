@@ -19,7 +19,7 @@ function cartTotalTemplate() {
   return newItem;
 }
 
-function cartTotal() {
+export function cartTotal() {
   const cartItems = getLocalStorage("so-cart");
   if (cartItems === null) {
     let total = 0;
