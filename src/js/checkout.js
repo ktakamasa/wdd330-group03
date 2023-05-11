@@ -11,4 +11,3 @@ document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   e.preventDefault();
   myCheckout.checkout();
 });
-
