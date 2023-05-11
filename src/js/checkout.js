@@ -1,10 +1,10 @@
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
-let checkout = new CheckoutProcess("so-cart");
+let myCheckout = new CheckoutProcess("so-cart");
 
-checkout.init();
+myCheckout.init();
 
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
     e.preventDefault(); 
-    checkout.checkout();
+    myCheckout.checkout();
 });
