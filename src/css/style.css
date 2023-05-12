@@ -307,3 +307,8 @@ footer {
 fieldset {
   margin: 1rem auto;
 }
+
+div.success h2,
+div.success p {
+  text-align: center;
+}
