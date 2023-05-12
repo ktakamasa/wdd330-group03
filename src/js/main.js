@@ -1,6 +1,4 @@
 // import { displayCounter } from "./cartCount.mjs";
-import { loadHeaderFooter, loadNewsletter } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
-
-loadNewsletter();
