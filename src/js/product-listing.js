@@ -7,6 +7,8 @@ const listHeading = document.querySelector("#product-list-heading");
 
 const category = getParam("category");
 
+console.log(category);
+
 let headingText = "Top Products: ";
 
 switch (category) {
@@ -29,6 +31,7 @@ switch (category) {
 listHeading.textContent = headingText;
 
 const dataSource = new ProductData();
+console.log(dataSource);
 
 const listElement = document.querySelector(".product-list");
 

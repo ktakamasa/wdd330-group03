@@ -258,6 +258,10 @@ button {
   grid-column: 3/4;
 }
 /* end of cart total style*/
+/*Shopping Cart quantity*/
+#qty{
+  width: 40px;
+}
 
 @media screen and (min-width: 500px) {
   body {

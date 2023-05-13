@@ -21,6 +21,7 @@ function cartTotalTemplate() {
 
 function cartTotal() {
   const cartItems = getLocalStorage("so-cart");
+  console.log(cartItems);
   if (cartItems === null) {
     let total = 0;
     return total.toFixed(2);
