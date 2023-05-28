@@ -259,19 +259,6 @@ button {
 }
 /* end of cart total style*/
 
-@media screen and (min-width: 500px) {
-  body {
-    max-width: 1080px;
-    margin: auto;
-  }
-  .mission {
-    font-size: 1.2em;
-  }
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 150px auto 15%;
-  }
-}
 
 footer {
   font-size: var(--small-font);
@@ -372,3 +359,18 @@ div.success p {
   text-decoration: none;
   cursor: pointer;
 }
+@media screen and (max-width: 500px) {
+
+  .category-grid, .mission{
+   margin: 15px; 
+  }
+  .category {
+   padding: 0;
+    margin: 10px;
+  }
+  
+  .product-card img{
+    width: 100%;
+  }
+  
+  }
